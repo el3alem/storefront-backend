@@ -1,0 +1,13 @@
+import express from 'express'
+import { getUser, deleteUser, getAllUsers, updateUser, createUser } from '../controllers/users'
+import auth from '../middleware/authorizer'
+
+const userRoute = express.Router()
+
+userRoute.get('/', getAllUsers)
+userRoute.get('/:id', getUser)
+userRoute.post('/create', createUser)
+userRoute.put('/:id', auth, updateUser)
+userRoute.delete('/:id', auth, deleteUser)
+
+export default userRoute
