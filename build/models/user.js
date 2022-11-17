@@ -97,7 +97,7 @@ var createUsr = function (u) { return __awaiter(void 0, void 0, void 0, function
                 return [4 /*yield*/, database_1.default.connect()];
             case 1:
                 connection = _a.sent();
-                sql = 'INSERT INTO users (username, first_name, last_name, password_digest) VALUES($1, $2, $3, $4) RETURNING *';
+                sql = 'INSERT INTO users (username, first_name, last_name, password_d) VALUES($1, $2, $3, $4) RETURNING *';
                 return [4 /*yield*/, connection.query(sql, [u.username, u.first_name, u.last_name, u.password])];
             case 2:
                 result = _a.sent();
@@ -120,7 +120,7 @@ var updateUsr = function (u) { return __awaiter(void 0, void 0, void 0, function
                 return [4 /*yield*/, database_1.default.connect()];
             case 1:
                 connection = _a.sent();
-                sql = "UPDATE users SET username = $2, first_name = $3, last_name = $4, password_digest = $5 WHERE id = $1 RETURNING *";
+                sql = "UPDATE users SET username = $2, first_name = $3, last_name = $4, password_d = $5 WHERE id = $1 RETURNING *";
                 return [4 /*yield*/, connection.query(sql, [u.id, u.username, u.first_name, u.last_name, u.password])];
             case 2:
                 result = _a.sent();

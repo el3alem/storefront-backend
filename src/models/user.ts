@@ -34,8 +34,7 @@ const createUsr = async (u: User): Promise<User> => {
     try {
         // @ts-ignore
         const connection = await pool.connect()
-        const sql =
-            'INSERT INTO users (username, first_name, last_name, password_digest) VALUES($1, $2, $3, $4) RETURNING *'
+        const sql = 'INSERT INTO users (username, first_name, last_name, password_d) VALUES($1, $2, $3, $4) RETURNING *'
 
         const result = await connection.query(sql, [u.username, u.first_name, u.last_name, u.password])
         connection.release()
@@ -50,7 +49,7 @@ const updateUsr = async (u: User): Promise<User> => {
     try {
         // @ts-ignore
         const connection = await pool.connect()
-        const sql = `UPDATE users SET username = $2, first_name = $3, last_name = $4, password_digest = $5 WHERE id = $1 RETURNING *`
+        const sql = `UPDATE users SET username = $2, first_name = $3, last_name = $4, password_d = $5 WHERE id = $1 RETURNING *`
 
         const result = await connection.query(sql, [u.id, u.username, u.first_name, u.last_name, u.password])
         connection.release()
