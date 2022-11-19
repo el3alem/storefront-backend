@@ -50,6 +50,7 @@ describe('User Model', function () {
                     })];
                 case 1:
                     result = _a.sent();
+                    console.log(result.username);
                     expect(result.username).toEqual('sayed');
                     return [2 /*return*/];
             }
@@ -63,7 +64,7 @@ describe('User Model', function () {
                 case 1:
                     users = _a.sent();
                     userId = users[0].id;
-                    console.log(userId);
+                    console.log(users.length);
                     return [4 /*yield*/, (0, user_1.updateUsr)({
                             id: userId,
                             username: 'ellol',
@@ -85,6 +86,7 @@ describe('User Model', function () {
                 case 0: return [4 /*yield*/, (0, user_1.getAllUsrs)()];
                 case 1:
                     result = _a.sent();
+                    console.log(result.length);
                     expect(result.length).toEqual(1);
                     return [2 /*return*/];
             }
@@ -101,6 +103,7 @@ describe('User Model', function () {
                     return [4 /*yield*/, (0, user_1.getUsr)(userId)];
                 case 2:
                     result = _a.sent();
+                    console.log(result.username);
                     expect(result.username).toEqual('ellol');
                     return [2 /*return*/];
             }
@@ -117,9 +120,12 @@ describe('User Model', function () {
                     return [4 /*yield*/, (0, user_1.deleteUsr)(userId)];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, (0, user_1.getAllUsrs)()];
+                    return [4 /*yield*/, (0, user_1.getAllUsrs)()
+                        // console.log(users.length)
+                    ];
                 case 3:
                     users = _a.sent();
+                    // console.log(users.length)
                     expect(users.length).toEqual(0);
                     return [2 /*return*/];
             }

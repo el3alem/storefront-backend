@@ -8,13 +8,15 @@ describe('User Model', () => {
             last_name: 'Test',
             password: 'password143',
         })
+        console.log(result.username)
         expect(result.username).toEqual('sayed')
     })
 
     it('should update a user', async () => {
         const users = await getAllUsrs()
         const userId = users[0].id
-        console.log(userId)
+
+        console.log(users.length)
         const result = await updateUsr({
             id: userId,
             username: 'ellol',
@@ -27,6 +29,7 @@ describe('User Model', () => {
 
     it('should return a list of users', async () => {
         const result = await getAllUsrs()
+        console.log(result.length)
         expect(result.length).toEqual(1)
     })
 
@@ -35,6 +38,7 @@ describe('User Model', () => {
         const userId = users[0].id as number
 
         const result = await getUsr(userId)
+        console.log(result.username)
         expect(result.username).toEqual('ellol')
     })
 
@@ -44,7 +48,7 @@ describe('User Model', () => {
 
         await deleteUsr(userId)
         users = await getAllUsrs()
-
+        // console.log(users.length)
         expect(users.length).toEqual(0)
     })
 })

@@ -10,6 +10,8 @@
             }
         }
     ],
-    "stopSpecOnExpectationFailure": false,
-    "random": true
+    "env": {
+        "stopSpecOnExpectationFailure": false,
+        "random": false
+    }
 }
