@@ -14,7 +14,7 @@ describe('User Model', () => {
     it('should update a user', async () => {
         const users = await getAllUsrs()
         const userId = users[0].id
-
+        console.log(userId)
         const result = await updateUsr({
             id: userId,
             username: 'ellol',
