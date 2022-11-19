@@ -8,6 +8,7 @@ var server_1 = __importDefault(require("../../server"));
 var authentication_1 = require("../../utils/authentication");
 var request = (0, supertest_1.default)(server_1.default);
 var token = (0, authentication_1.createJWTToken)(1, 'Ahly');
+console.log('testing');
 describe('Orderscontroller: ', function () {
     it('return new order ', function () {
         var data = {

@@ -4,7 +4,7 @@ import auth from '../middleware/authorizer'
 
 const userRoute = express.Router()
 
-userRoute.get('/', getAllUsers)
+userRoute.get('/', auth, getAllUsers)
 userRoute.get('/:id', getUser)
 userRoute.post('/create', createUser)
 userRoute.put('/:id', auth, updateUser)
